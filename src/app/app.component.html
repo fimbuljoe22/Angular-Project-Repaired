@@ -1,0 +1,40 @@
+<div class="container">
+    <h1 class="text-center mb-3">Töltények</h1>
+    <table class="table table-hover table-bordered">
+        <tr class="text-center">
+            <th>
+                <span (click)="newRound()">&#10010;</span>
+            </th>
+            <th>Típus</th>
+            <th>Kaliber</th>
+            <th>Hossz(mm)</th>
+            <th>Tömeg(grain)</th>
+            <th>Hatékony Lőtáv(m)</th>
+            <th>Lőtáv(m)</th>
+            <th>Sebesség(km/h)</th>
+            <th>Visszarúgás(psi)</th>
+            <th>Ár($)</th>
+        </tr>
+
+    @for (round of rounds; track $index) {
+        <tr>
+            <td>
+                <span (click)="modifyRound(round)">&#9998;</span>
+                <span (click)="deleteRound(round)">&#10008;</span>
+            </td>
+            <td>{{round.type}}</td>
+            <td>{{round.caliber}}</td>
+            <td>{{round.length}}</td>
+            <td>{{round.weight}}</td>
+            <td>{{round.effective_range}}</td>
+            <td>{{round.range}}</td>
+            <td>{{round.velocity}}</td>
+            <td>{{round.felt_recoil}}</td>
+            <td>{{round.price}}</td>
+        </tr>
+        }
+    </table>
+</div>
+
+<app-team [model]="modify" (saved)="saveModify($event)"></app-team>
+<app-team [model]="new" (saved)="saveNew($event)"></app-team>

@@ -1,0 +1,65 @@
+@if (model) {
+    <div class="modal" tabindex="-1" style="display: block;">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Adatok rögzítése</h5>
+            <button type="button" class="btn-close" (click)="model = undefined"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Típus</label>
+                        <input type="text" class="form-control" id="type"
+                              [value]="model.type" (change)="model.type = getValue($event)"  >
+                    </div>
+                    <div class="mb-3">
+                        <label for="caliber" class="form-label">Kaliber</label>
+                        <input type="number" class="form-control" id="caliber"
+                              [value]="model.caliber" (change)="model.caliber = getNumberValue($event)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="length" class="form-label">Hossz(mm)</label>
+                        <input type="number" class="form-control" id="length"
+                              [value]="model.length" (change)="model.length = getNumberValue($event)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="weight" class="form-label">Tömeg(grain)</label>
+                        <input type="number" class="form-control" id="weight"
+                              [value]="model.weight" (change)="model.weight = getNumberValue($event)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="effective_range" class="form-label">Hatékony Lőtáv(m)</label>
+                        <input type="number" class="form-control" id="effective_range"
+                              [value]="model.effective_range" (change)="model.effective_range = getNumberValue($event)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="range" class="form-label">Lőtáv(m)</label>
+                        <input type="number" class="form-control" id="range"
+                              [value]="model.range" (change)="model.range = getNumberValue($event)">
+                    </div>
+                    <div class="mb-3">
+                      <label for="velocity" class="form-label">Lövedék Sebessége(km/h)</label>
+                      <input type="number" class="form-control" id="velocity"
+                              [value]="model.velocity" (change)="model.velocity = getNumberValue($event)">
+                    </div>
+                    <div class="mb-3">
+                      <label for="felt_recoil" class="form-label">Visszarúgás(psi)</label>
+                      <input type="number" class="form-control" id="felt_recoil"
+                              [value]="model.felt_recoil" (change)="model.felt_recoil = getNumberValue($event)">
+                    </div>
+                    <div class="mb-3">
+                      <label for="price" class="form-label">Ár($)</label>
+                      <input type="number" class="form-control" id="price"
+                              [value]="model.price" (change)="model.price = getNumberValue($event)">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="model = undefined">Mégsem</button>
+            <button type="button" class="btn btn-success" (click)="save()">Mentés</button>
+            </div>
+        </div>
+        </div>
+    </div>
+}
